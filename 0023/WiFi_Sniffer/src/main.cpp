@@ -45,16 +45,25 @@ void loop()
             display.setCursor(29, 40);
             display.print(rssi);
 
+            const int16_t bar_width = 2;
+            const int16_t scaling_factor = 3;
+            const int16_t top_left_x_coord = 46;
+            const int16_t top_left_y_coord = 48;
+
             // Display signal quality bars
             for (int b = 0; b <= bars; b++)
             {
-                display.fillRect(46 + (b*3), 48 - (b*3), 2 , b*3 , WHITE);
+                display.fillRect(top_left_x_coord + (b*scaling_factor), top_left_y_coord - (b*scaling_factor), bar_width , b*scaling_factor , WHITE);
             }
 
             display.display();
+
             delay(1500);
+
             // Update available networks again to show latest RSSI
             available_networks = WiFi.scanNetworks();
         }
+
+        
     }
 }

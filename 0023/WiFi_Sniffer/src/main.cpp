@@ -53,6 +53,8 @@ void loop()
 
             display.display();
             delay(1500);
+            // Update available networks again to show latest RSSI
+            available_networks = WiFi.scanNetworks();
         }
     }
 }

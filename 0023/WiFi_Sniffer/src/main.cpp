@@ -1,6 +1,5 @@
 #include "Adafruit_SSD1306.h"
 #include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
 #include <helpers.hpp>
 
 // 64 x 48
@@ -31,7 +30,6 @@ void loop()
             int bars = getBarsSignal(rssi);
             Serial.print("RSSI:");
             Serial.println(rssi);
-
 
             // Display network name, signal Strength and battery level
             display.setCursor(0, 0);
